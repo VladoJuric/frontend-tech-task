@@ -4,8 +4,11 @@ class Box extends React.Component{
     render(){
         return(
             <div className="wrapper">
-                <div className="box">
-                    <button>
+                <div style={{
+                    backgroundColor:'{this.props.color}'
+                }}
+                className="box">
+                    <button onClick={()=>{this.props.handleClick()}}>
                         Change Color
                     </button>
                 </div>
