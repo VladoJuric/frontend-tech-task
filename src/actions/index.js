@@ -3,17 +3,13 @@ import axios from "axios";
 export function loadColor(){
     return(dispatch) => {
         return axios.get("http://www.colr.org/json/color/random").then((response)=>{
-            let color1 = "#" + response.data.new_color;
-            let color2 = "#" + response.data.colors[0].tags[0].name;
-            let color;
-            console.log(color1 + " - " + color2)
-            let rand = Math.random() * 1
-            console.log(rand)
-            if (rand >= 0.5) {
-                color = color1
-            } else {
-                color = color2
-            }
+            let color = [];    
+        
+            color[0] = "black"
+            color[1] = "#" + response.data.new_color;
+            color[2] = "#" + response.data.colors[0].tags[0].name;
+
+            console.log(color[0] + " - " + color[1] + " - " + color[3])
 
             dispatch(changeColor(color))
         })
@@ -21,8 +17,10 @@ export function loadColor(){
 }
 
 export function changeColor(color){
+    let rand = Math.floor(Math.random() * 3)
+    console.log(rand)
     return{
         type:"CHANGE_COLOR",
-        color:color
+        color:color[rand]
     }
 }
