@@ -1,5 +1,5 @@
 let defaultState={
-    color:"red"
+    color:"#282c34"
 }
 
 const mainReducer=(state=defaultState,action)=>{
