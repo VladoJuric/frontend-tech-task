@@ -5,7 +5,8 @@ class Box extends React.Component{
         return(
             <div className="wrapper">
                 <div style={{
-                    backgroundColor:'{this.props.color}'
+                    backgroundColor: this.props.color
+                    // alert('test')
                 }}
                 className="box">
                     <button onClick={()=>{this.props.handleClick()}}>
